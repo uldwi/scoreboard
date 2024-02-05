@@ -9,6 +9,7 @@
                     const Http = new XMLHttpRequest();
                     Http.open("GET", "/setName/"+txt.name+"/"+txt.value);
                     Http.send();
+                    location.reload()
                 }
             }
 
@@ -17,6 +18,7 @@
                     const Http = new XMLHttpRequest();
                     Http.open("GET", "/setStage/"+txt.value);
                     Http.send();
+                    location.reload()
                 }
             }
     </script>
@@ -93,14 +95,14 @@
         </div>
         <div id="container">
             <div class="control">
-                <div id="name">Name1</div>
+                <div id="name">@name1</div>
                 <button class="btn" href="@routes.HomeController.addPoint(1)">Punkte +1</button>
                 <button class="btn" href="@routes.HomeController.addSet(1)">Sätze +1</button>
             </div>
         </div>
         <div id="container">
             <div class="control">
-                <div id="name">Name2</div>
+                <div id="name">@name2</div>
                 <button class="btn" href="@routes.HomeController.addPoint(2)">Punkte +1</button>
                 <button class="btn" href="@routes.HomeController.addSet(2)">Sätze +1</button>
             </div>
