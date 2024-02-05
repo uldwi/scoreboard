@@ -20,15 +20,98 @@
                 }
             }
     </script>
+    <style>
+        * {
+            color: #FFF;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .btn {
+            width: 154px;
+            height: 48px;
+            border-radius: 5px;
+            background: #0275d8;
+            display: flex;
+            width: 154px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 15px;
+            border-style: none;
+        }
+        .btn:hover {
+            cursor: pointer;
+            filter: brightness(85%);
+        }
+        .control {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            border: 1px solid black ;
+            border-radius: 5px;
+            width: fit-content;
+            background-color: #292b2c;
 
-    <a class="btn" href="@routes.HomeController.addPoint(1)">Player1</a>
-    <a class="btn" href="@routes.HomeController.addPoint(2)">Player2</a>
-    <a class="btn" href="@routes.HomeController.addSet(1)">Player1 Set</a>
-    <a class="btn" href="@routes.HomeController.addSet(2)">Player2 Set</a>
-    <a class="btn" href="@routes.HomeController.reset()">reset</a>
-    <input name="1" placeholder="@name1" onkeydown="sendName(this)">
-    <input name="2" placeholder="@name2" onkeydown="sendName(this)">
-    <input placeholder="@stage" onkeydown="sendStage(this)">
+        }
+        .control1 {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            width: inherit;
+        }
+        #name {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            margin-left: 25px;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+        #eingabe {
+            margin: 10px;
+            border-radius: 10px;
+            height: 25px;
+        }
+        #eingabe:placeholder-shown {
+            border: 2px solid #d9534f ;
+        }
+        #controlbox {
+            background-color: #ddeefc;
+        }
+    </style>
+    <div id="controlbox">
+        <div id="container">
+            <input id="eingabe" placeholder="@stage" onkeydown="sendStage(this)">
+            <input id="eingabe" name="1" placeholder="@name1" onkeydown="sendName(this)">
+            <input id="eingabe" name="2" placeholder="@name2" onkeydown="sendName(this)">
+        </div>
+        <div id="container">
+            <div class="control">
+                <div id="name">Name1</div>
+                <button class="btn" href="@routes.HomeController.addPoint(1)">Punkte +1</button>
+                <button class="btn" href="@routes.HomeController.addSet(1)">Sätze +1</button>
+            </div>
+        </div>
+        <div id="container">
+            <div class="control">
+                <div id="name">Name2</div>
+                <button class="btn" href="@routes.HomeController.addPoint(2)">Punkte +1</button>
+                <button class="btn" href="@routes.HomeController.addSet(2)">Sätze +1</button>
+            </div>
+        </div>
+        <div id="container">
+            <div class="control1">
+                <button class="btn" style="background-color: #d9534f;" href="@routes.HomeController.reset()">Zurücksetzen</button>
+            </div>
+        </div>
+    </div>
+    
 
 
 }
