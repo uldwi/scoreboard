@@ -23,13 +23,17 @@
             }
     </script>
     <style>
-        * {
+        *, a {
             color: #FFF;
             font-family: Inter;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #FFF;
         }
         .btn {
             width: 154px;
@@ -96,20 +100,20 @@
         <div id="container">
             <div class="control">
                 <div id="name">@name1</div>
-                <button class="btn" href="@routes.HomeController.addPoint(1)">Punkte +1</button>
-                <button class="btn" href="@routes.HomeController.addSet(1)">Sätze +1</button>
+                <a class="btn" href="@routes.HomeController.addPoint(1)">Punkte +1</a>
+                <a class="btn" href="@routes.HomeController.addSet(1)">Sätze +1</a>
             </div>
         </div>
         <div id="container">
             <div class="control">
                 <div id="name">@name2</div>
-                <button class="btn" href="@routes.HomeController.addPoint(2)">Punkte +1</button>
-                <button class="btn" href="@routes.HomeController.addSet(2)">Sätze +1</button>
+                <a class="btn" href="@routes.HomeController.addPoint(2)">Punkte +1</a>
+                <a class="btn" href="@routes.HomeController.addSet(2)">Sätze +1</a>
             </div>
         </div>
         <div id="container">
             <div class="control1">
-                <button class="btn" style="background-color: #d9534f;" href="@routes.HomeController.reset()">Zurücksetzen</button>
+                <a class="btn" style="background-color: #d9534f;" href="@routes.HomeController.reset()">Zurücksetzen</a>
             </div>
         </div>
     </div>
