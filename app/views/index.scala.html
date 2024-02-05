@@ -1,0 +1,142 @@
+@(url: String)
+
+@main("Welcome to Play") {
+  <head>
+
+    <script type = "text/javascript">
+            function WebSocketTest() {
+
+              if ("WebSocket" in window) {
+
+                // Let us open a web socket
+                var ws = new WebSocket("@url");
+
+                ws.onopen = function() {
+
+                  // Web Socket is connected, send data using send()
+                };
+
+                ws.onmessage = function (evt) {
+                  var received_msg = evt.data;
+                  var msg = JSON.parse(received_msg);
+                  document.getElementById("points1").textContent = msg.points1;
+                  document.getElementById("points2").textContent = msg.points2;
+                  document.getElementById("sets1").textContent = msg.sets1;
+                  document.getElementById("sets2").textContent = msg.sets2;
+                  document.getElementById("name1").textContent = msg.name1;
+                  document.getElementById("name2").textContent = msg.name2;
+                  document.getElementById("stage").textContent = msg.stage;
+
+                };
+
+                ws.onclose = function() {
+
+                  // websocket is closed.
+                  location.reload()
+                };
+              } else {
+
+                // The browser doesn't support WebSocket
+                alert("WebSocket NOT supported by your Browser!");
+              }
+            }
+            window.onload = WebSocketTest;
+    </script>
+    <style>
+            * {
+              font-size: 17px;
+              font-family: Inter;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+            #containerstage {
+              width: fit-content;
+              min-width: 111px;
+              height: 21px;
+              background: #FFF;
+              box-shadow: 0px -2px 4px 1px rgba(0, 0, 0, 0.25);
+              border-radius: 3px 3px 0px 0px;
+              margin-left: 5px;
+            }
+            #stage {
+              display: flex;
+              justify-content: center;
+              color: #079A08;
+              text-align: center;
+              padding-left: 5px;
+              padding-right: 5px;
+              align-items: center;
+            }
+            #row1, #row2 {
+              display: flex;
+              height: 35px;
+              align-items: center;
+            }
+            #containergesamt {
+              width: 235px;
+              height: 70px;
+              border-radius: 5px;
+              background: #079A08;
+              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+              flex-shrink: 0;
+            }
+            #trennlinie {
+              width: 235px;
+              height: 1px;
+              background: #FFF;
+              align-items: center;
+            }
+            #sets1, #sets2 {
+              background: #FFF;
+              height: 35px;
+              width: 37px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #079A08;
+              margin-left: 5px;
+            }
+            #points1, #points2 {
+              width: 37px;
+              display: flex;
+              justify-content: center;
+              color: #FFF;
+            }
+            #namen {
+              width: 180px;
+              overflow: hidden;
+            }
+            #name1, #name2 {
+              color: #FFF;
+              margin-left: 20px;
+              white-space: nowrap;
+            }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div id="containerstage">
+      <div id = "stage">Runde</div>
+    </div>
+    <div id="containergesamt">
+      <div id="row1">
+        <div id="namen">
+          <span id = "name1">name1</span>
+        </div>
+        <div id = "sets1">0</div>
+        <div id = "points1">0</div>
+      </div>
+      <div id="trennlinie"></div>
+      <div id="row2">
+        <div id="namen">
+          <span id = "name2">name2</span>
+        </div>
+        <div id = "sets2">0</div>
+        <div id = "points2">0</div>
+      </div>
+    </div>
+  </body>
+}

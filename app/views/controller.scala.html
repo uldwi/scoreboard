@@ -1,0 +1,33 @@
+@(name1: String, name2: String, stage: String)
+@import helper._
+
+@main("Controller") {
+
+    <script type = "text/javascript">
+            function sendName(txt) {
+                if(event.key === 'Enter') {
+                    const Http = new XMLHttpRequest();
+                    Http.open("GET", "/setName/"+txt.name+"/"+txt.value);
+                    Http.send();
+                }
+            }
+
+            function sendStage(txt) {
+                if(event.key === 'Enter') {
+                    const Http = new XMLHttpRequest();
+                    Http.open("GET", "/setStage/"+txt.value);
+                    Http.send();
+                }
+            }
+    </script>
+
+    <a class="btn" href="@routes.HomeController.addPoint(1)">Player1</a>
+    <a class="btn" href="@routes.HomeController.addPoint(2)">Player2</a>
+    <a class="btn" href="@routes.HomeController.addSet(1)">Player1 Set</a>
+    <a class="btn" href="@routes.HomeController.addSet(2)">Player2 Set</a>
+    <input name="1" placeholder="@name1" onkeydown="sendName(this)">
+    <input name="2" placeholder="@name2" onkeydown="sendName(this)">
+    <input placeholder="@stage" onkeydown="sendStage(this)">
+
+
+}
