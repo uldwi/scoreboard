@@ -91,6 +91,7 @@
         #controlbox {
             background-color: #ddeefc;
         }
+        
     </style>
     <div id="controlbox">
         <div id="container">
@@ -101,15 +102,29 @@
         <div id="container">
             <div class="control">
                 <div id="name">@name1</div>
-                <a class="btn" href="@routes.HomeController.addPoint(1)">Punkte +1</a>
-                <a class="btn" href="@routes.HomeController.addSet(1)">Sätze +1</a>
+                <div class="row1">
+                    <a class="btn" href="@routes.HomeController.addPoint(1)">Punkte +1</a>
+                    <a class="btn" href="@routes.HomeController.addSet(1)">Sätze +1</a>
+                </div>
+                <div class="row2">
+                    <a class="btn" href="@routes.HomeController.subtractPoint(1)">Punkte -1</a>
+                    <a class="btn" href="@routes.HomeController.subtractSet(1)">Sätze -1</a>
+                </div>
             </div>
+
+        
         </div>
         <div id="container">
             <div class="control">
                 <div id="name">@name2</div>
-                <a class="btn" href="@routes.HomeController.addPoint(2)">Punkte +1</a>
-                <a class="btn" href="@routes.HomeController.addSet(2)">Sätze +1</a>
+                <div class="row1">
+                    <a class="btn" href="@routes.HomeController.addPoint(2)">Punkte +1</a>
+                    <a class="btn" href="@routes.HomeController.addSet(2)">Sätze +1</a>
+                </div>
+                <div class="row2">
+                    <a class="btn" href="@routes.HomeController.subtractPoint(2)">Punkte -1</a>
+                    <a class="btn" href="@routes.HomeController.subtractSet(2)">Sätze -1</a>
+                </div>
             </div>
         </div>
         <div id="container">
