@@ -72,6 +72,20 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
     Redirect(routes.HomeController.controller())
   }
 
+  def subtractSet(player: Int) = Action {
+    if (player == 1 && sets1 > 0) sets1 -= 1
+    else if(sets2 > 0) sets2 -= 1
+    manager ! Message(Json.stringify(getJson))
+    Redirect(routes.HomeController.controller())
+  }
+
+  def subtractPoint(player: Int) = Action {
+    if (player == 1 && points1 > 0) points1 -= 1
+    else if (points2 > 0) points2 -= 1
+    manager ! Message(Json.stringify(getJson))
+    Redirect(routes.HomeController.controller())
+  }
+
   def reset() = Action {
     points1 = 0
     points2 = 0
