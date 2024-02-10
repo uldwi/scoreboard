@@ -35,7 +35,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
   }
 
   def controller() = Action {implicit request: Request[AnyContent] =>
-    Ok(views.html.controller(name1, name2, stage))
+    Ok(views.html.controller(name1, name2, stage, points1, points2, sets1, sets2))
   }
 
   def getJson = Json.obj(
